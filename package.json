@@ -1,0 +1,48 @@
+{
+  "name": "@learning-ui/terminal",
+  "version": "v1.2.1",
+  "description": "React component that renders a terminal",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "files": [
+    "lib",
+    "LICENCE",
+    "package.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "alick.shi",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@types/react": "^17.x",
+    "@types/react-dom": "^17.x",
+    "rollup": "^2.70.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.6.3"
+  },
+  "peerDependencies": {
+    "react": "^17.x",
+    "react-dom": "^17.x"
+  },
+  "dependencies": {
+    "less": "^4.1.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./lib",
+    "module": "es6",
+    "noImplicitAny": false,
+    "outDir": "./lib",
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "files": ["src/global.d.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

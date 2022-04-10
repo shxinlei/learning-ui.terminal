@@ -6,6 +6,7 @@
     "@learning-ui/terminal": "file:../lib",
     "@types/react": "file:../node_modules/@types/react",
     "@types/react-dom": "file:../node_modules/@types/react-dom",
+    "antd": "^4.19.5",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "5.0.0",

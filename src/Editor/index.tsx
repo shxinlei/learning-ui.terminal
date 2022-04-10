@@ -15,7 +15,6 @@ const Editor = ({...props}) => {
         return () => {
             document.removeEventListener("keydown", handleKeyDownEvent);
         };
-
     });
 
     useEffect(() => {
@@ -26,10 +25,13 @@ const Editor = ({...props}) => {
     }, [])
 
     const clickNot = (e) => {
+        console.log(e, 'e')
+
         if(e.target?.dataset?.terminal){
             setIsShowLine(true);
         }else {
             setIsShowLine(false);
+
         }
     }
 
@@ -41,7 +43,9 @@ const Editor = ({...props}) => {
     }
 
     const handleKeyDownEvent = (event: any) => {
-        event.preventDefault();
+        // event.preventDefault();
+
+        // console.log(event.key)
         if(!isShowLine) return;
         const eventKey = event.key;
         if (eventKey === "Enter") {

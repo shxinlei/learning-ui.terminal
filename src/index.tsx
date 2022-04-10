@@ -7,6 +7,7 @@ const Terminal = ({ ...props }) => {
 
     return <div className={styles.wrap}>
         <Editor {...props} />
+
     </div>
 }
 

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Terminal from "@learning-ui/terminal";
 
 
 const  App = () => {
-  return (
-    <div className="App">
+
+    const terminalRef = useRef(null);
+    return (
+    <div className="App" ref={terminalRef}>
         <Terminal
+            element={terminalRef.current}
         />
     </div>
   );

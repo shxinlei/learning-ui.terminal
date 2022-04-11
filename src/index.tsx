@@ -1,13 +1,10 @@
 import * as React from "react";
-import Editor from "./Editor";
+import Editor, {EditorProps} from "./Editor";
 import styles from "./index.less"
 
-const Terminal = ({ ...props }) => {
-
-
+const Terminal = ({ ...props }: EditorProps) => {
     return <div className={styles.wrap}>
         <Editor {...props} />
-
     </div>
 }
 

@@ -32,15 +32,20 @@ const  App = () => {
            });
         }
     };
+
     const terminalRef = useRef(null);
     return (
     <div className="App" ref={terminalRef}>
         <Terminal
             command={commands}
-            prefixCommand={"~ >>>"}
+            prefixCommand={"PS C:\\Users\\10652>"}
             // fontFamily={}
             height={500}
-            terminalMessage= {[ { title: "错误", color: "red" , align: "center"}, { title: "Welcome to @learning-ui/terminal", align: "center" } ]} //{"123123"}
+            terminalMessage= {[
+                { title: "Windows PowerShell", color: "red" , align: "left"},
+                { title: "版权所有（C） Microsoft Corporation。保留所有权利", align: "left" },
+                { title: "安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows", align: "left" }
+            ]} //{"123123"}
         />
         <Input />
 

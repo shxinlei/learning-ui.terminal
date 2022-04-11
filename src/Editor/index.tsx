@@ -16,6 +16,7 @@ export interface EditorProps {
     prefixCommand?: string | any[];
     command?:{[key: string]: (after: string, content: string) => Promise<PromiseCallback | unknown>},
     terminalMessage?: string | { title: string , align?: "left" | "center" | "right", color?: string }[];
+    height?: number,
     [key: string]: any
 }
 
@@ -25,7 +26,8 @@ const Editor = ({...props}: EditorProps) => {
         fontFamily,
         prefixCommand,
         command,
-        terminalMessage = 'Welcome to @learning-ui/terminal'
+        terminalMessage = 'Welcome to @learning-ui/terminal',
+        height = 300,
     } = props;
     const [content, setContent] = useState("");
     const editorRef = useRef(null);
@@ -68,7 +70,7 @@ const Editor = ({...props}: EditorProps) => {
     const customAttr = {
         style: {
             fontFamily,
-            height: 300,
+            height: height || 300,
         }
     }
 
@@ -78,7 +80,7 @@ const Editor = ({...props}: EditorProps) => {
         setHistory(_history);
         setContent("");
         setHistoryPointer(_history.length);
-        editorRef.current.scrollTop = editorRef.current?.scrollHeight - 300;
+        editorRef.current.scrollTop = editorRef.current?.scrollHeight - height;
         editorRef.current.onkeydown = null;
     }
 

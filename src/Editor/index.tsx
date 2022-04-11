@@ -8,7 +8,7 @@ export type historyProps = { prefix: string , content: string , message: content
 export type callbackProps = (
     { setHistory , setContent , item , history } : { setHistory: ({...props}) => void , setContent: ({...props}) => void , item: { content:contentProps } , history: historyProps }
 ) => void;
-export type PromiseCallback = {content: contentProps , color?: string , callback?:({...props}:callbackProps) => {}}
+export type PromiseCallback = {content: contentProps , color?: string , callback?:({...props}:callbackProps) => void}
 
 
 export interface EditorProps {
@@ -46,14 +46,8 @@ const Editor = ({...props}: EditorProps) => {
 
     useEffect(() => {
         document.addEventListener("click", clickNot);
-        // if(editorRef.current) {
-        //     editorRef.current.addEventListener("scroll" , handleScroll)
-        // }
         return () => {
             document.removeEventListener("click", clickNot)
-            // if(editorRef.current){
-            //     editorRef.current.removeEventListener("scroll" , handleScroll);
-            // }
         }
     }, []);
 
@@ -90,9 +84,7 @@ const Editor = ({...props}: EditorProps) => {
         if(readyOnly) return;
         const eventKey = event.key;
         if (eventKey === "Enter") { // 点击确定的时候
-            console.log(history);
             let _history = deepClone(history);
-
             let cmdContent = "";
             let cmdArr = content.split(" ").filter(_ => _);
             let resetCmd = cmdArr.map(item => item.trim());
@@ -115,19 +107,27 @@ const Editor = ({...props}: EditorProps) => {
                     });
                 }
             }
-
-            // 如果 首部命令不存在 报错
-            if(!Object.keys(cmd).includes(resetCmd[0])){
+            if(!resetCmd[0]) {
                 _history.push({
                     prefix: userInformation,
                     content: content,
                     message: {
-                        content: "command is not defined",
+                        content: "",
+                    }
+                });
+                handleClear(_history , editorRef);
+            }else if(!Object.keys(cmd).includes(resetCmd[0])){ // 如果 首部命令不存在 报错
+                _history.push({
+                    prefix: userInformation,
+                    content: content,
+                    message: {
+                        content: `${resetCmd[0]} command is not defined`,
                         color: "red"
                     }
                 });
                 handleClear(_history , editorRef);
             }
+
 
 
 

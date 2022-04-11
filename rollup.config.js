@@ -3,7 +3,7 @@ import typescript2 from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import {terser} from "rollup-plugin-terser";
 import pkg from "./package.json";
-import copy from 'rollup-plugin-copy'
+// import copy from 'rollup-plugin-copy'
 export default {
     input: "src/index.tsx",
     output: [
@@ -32,10 +32,10 @@ export default {
             typescript: require("typescript")
         }),
         process.env.NODE_ENV === "production" ? terser() : null,
-        copy({
-            targets: [
-                { src: 'src/font', dest: 'lib' },
-            ]
-        })
+        // copy({
+        //     targets: [
+        //         { src: './test.png', dest: 'lib' },
+        //     ]
+        // })
     ]
 };

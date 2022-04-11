@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@learning-ui/terminal": "file:../lib",
+    "@learning-ui/terminal": "^0.1.5",
     "@types/react": "file:../node_modules/@types/react",
     "@types/react-dom": "file:../node_modules/@types/react-dom",
     "antd": "^4.19.5",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "5.0.0",
-    "react-terminal": "^1.2.1",
+    "test": "file:../lib",
     "typescript": "^4.6.3"
   },
   "scripts": {

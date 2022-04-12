@@ -43,7 +43,7 @@ const  App = () => {
             height={500}
             terminalMessage= {[
                 { title: "Windows PowerShell", color: "red" , align: "left"},
-                { title: "版权所有（C） Microsoft Corporation。保留所有权利", align: "left" },
+                { title: "版权所有（C） Microsoft Corporation。保留所有权利👹👎🌔🌟", align: "left" },
                 { title: "安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows", align: "left" }
             ]} //{"123123"}
         />

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {CSSProperties, useEffect, useRef, useState} from "react";
 import styles from "./index.less"
 import {deepClone, inset} from "./constant";
 import useCommand from "./hook";
@@ -15,7 +15,7 @@ export interface EditorProps {
     fontFamily?: any; // 字体类型
     prefixCommand?: string | any[];
     command?:{[key: string]: (after: string, content: string) => Promise<PromiseCallback | unknown>},
-    terminalMessage?: string | { title: string , align?: "left" | "center" | "right", color?: string }[];
+    terminalMessage?: string | { title: string , align?: "left" | "center" | "right", color?: string, style?:CSSProperties }[];
     height?: number,
     [key: string]: any
 }
@@ -181,7 +181,7 @@ const Editor = ({...props}: EditorProps) => {
                 <div data-terminal={inset} className={styles.topMessage}>{
                     typeof terminalMessage === "string" ? terminalMessage :
                         terminalMessage?.map((item, index) => {
-                            return <span key={index} style={{ color: item.color , textAlign: item.align || 'left'}}>{item?.title}</span>
+                            return <span key={index} style={{ color: item.color , textAlign: item.align || 'left' , ...item.style}}>{item?.title}</span>
                         })
                 }</div>
                 {

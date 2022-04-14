@@ -17,6 +17,7 @@ export interface EditorProps {
     command?:{[key: string]: (after: string, content: string) => Promise<PromiseCallback | unknown>},
     terminalMessage?: string | { title: string , align?: "left" | "center" | "right", color?: string, style?:CSSProperties }[];
     height?: number,
+    disabledKeys?:boolean,
     [key: string]: any
 }
 
@@ -28,6 +29,7 @@ const Editor = ({...props}: EditorProps) => {
         command,
         terminalMessage = 'Welcome to @learning-ui/terminal',
         height = 300,
+        disabledKeys
     } = props;
     const [content, setContent] = useState("");
     const editorRef = useRef(null);
@@ -79,7 +81,7 @@ const Editor = ({...props}: EditorProps) => {
     }
 
     const handleKeyDownEvent = (event: any) => {
-
+        if(disabledKeys) event.preventDefault();
         if (!isShowLine) return;
         if(readyOnly) return;
         const eventKey = event.key;

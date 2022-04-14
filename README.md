@@ -34,6 +34,19 @@ export type callbackProps = (
 ) => void;
 export type PromiseCallback = {content: contentProps , color?: string , callback?:({...props}:callbackProps) => void}
 
+const cdCommand:{ [key: string]: any } = {
+    defined: {
+        content: [
+            {title: "command error" , color: "red" },
+            { title: "please try one try cd --help", color: "green" }
+        ],
+        color: "red"
+    },
+    "--help": {
+        content: "error",
+        color: "yellow"
+    },
+}
 const commands = {
     cd: (after: string, content: string) => {
         return new Promise((res, rej) => {

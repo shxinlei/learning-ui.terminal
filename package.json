@@ -1,6 +1,6 @@
 {
   "name": "@learning-ui/terminal",
-  "version": "v0.2.1",
+  "version": "v0.2.3",
   "description": "React component that renders a terminal",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -33,8 +33,8 @@
   },
   "homepage": "https://gitee.com/shi_xinlei/learning-ui.terminal.git",
   "devDependencies": {
-    "@types/react": "^17.x",
-    "@types/react-dom": "^17.x",
+    "@types/react": "^16.x",
+    "@types/react-dom": "^16.x",
     "rollup": "^2.70.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-postcss": "^4.0.2",
@@ -44,8 +44,8 @@
     "less": "^4.1.2"
   },
   "peerDependencies": {
-    "react": "^17.x",
-    "react-dom": "^17.x"
+    "react": "^16.x",
+    "react-dom": "^16.x"
   },
   "dependencies": {
 

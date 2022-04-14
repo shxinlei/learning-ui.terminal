@@ -84,6 +84,7 @@ const Editor = ({...props}: EditorProps) => {
         if(readyOnly) return;
         const eventKey = event.key;
         if (eventKey === "Enter") { // 点击确定的时候
+            event.preventDefault();
             let _history = deepClone(history);
             let cmdContent = "";
             let cmdArr = content.split(" ").filter(_ => _);

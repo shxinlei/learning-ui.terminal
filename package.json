@@ -1,6 +1,6 @@
 {
   "name": "@learning-ui/terminal",
-  "version": "v0.2.5",
+  "version": "v0.2.6",
   "description": "React component that renders a terminal",
   "main": "lib/index.js",
   "module": "lib/index.es.js",

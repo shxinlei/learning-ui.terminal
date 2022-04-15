@@ -86,7 +86,6 @@ const Editor = ({...props}: EditorProps) => {
         if(readyOnly) return;
         const eventKey = event.key;
         if (eventKey === "Enter") { // 点击确定的时候
-            event.preventDefault();
             let _history = deepClone(history);
             let cmdContent = "";
             let cmdArr = content.split(" ").filter(_ => _);
@@ -184,7 +183,7 @@ const Editor = ({...props}: EditorProps) => {
                 <div data-terminal={inset} className={styles.topMessage}>{
                     typeof terminalMessage === "string" ? terminalMessage :
                         terminalMessage?.map((item, index) => {
-                            return <span key={index} style={{ color: item.color , textAlign: item.align || 'left' , ...item.style}}>{item?.title}</span>
+                            return <span key={index} data-terminal={inset} style={{ color: item.color , textAlign: item.align || 'left' , ...item.style}}>{item?.title}</span>
                         })
                 }</div>
                 {
@@ -200,7 +199,7 @@ const Editor = ({...props}: EditorProps) => {
                                         {
                                             typeof item.message?.content === "string" ? item.message.content :
                                                 item.message.content?.map((item, index) => {
-                                                    return <span key={index} style={{ color: item.color , paddingLeft: index > 0 ? "16px" : "", ...item.style }}>{item?.title}</span>
+                                                    return <span data-terminal={inset} key={index} style={{ color: item.color , paddingLeft: index > 0 ? "16px" : "", ...item.style }}>{item?.title}</span>
                                                 })
                                         }
                                         {
@@ -220,7 +219,7 @@ const Editor = ({...props}: EditorProps) => {
                 <div data-terminal={inset} className={styles[`command`]}>
                     <div className={isShowLine ? `editor-command-line` : ""} data-terminal={inset}>
                         {userInformation}
-                        <code className={styles.content}>
+                        <code data-terminal={inset} className={styles.content}>
                             {content}
                         </code>
                     </div>
